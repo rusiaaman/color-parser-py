@@ -53,9 +53,3 @@ build = ["cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*"]
 test-requires = ["pytest"]
 # Run pytest after building
 test-command = "pytest {package}/tests"
-
-[tool.cibuildwheel]
-# Skip trying to build wheels for PyPy
-skip = "pp*"
-# Build for all supported Python versions
-build = ["cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*"]
