@@ -36,7 +36,6 @@ impl ColorParser {
         self.color.to_rgb_string()
     }
 
-    // Static method to check if a string is a valid color
     #[staticmethod]
     fn is_valid(color_str: &str) -> bool {
         color_str.parse::<Color>().is_ok()
