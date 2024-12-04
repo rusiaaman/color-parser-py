@@ -9,6 +9,14 @@ Python bindings for CSS color parser using PyO3. Parse and convert colors betwee
 
 ## Installation
 
+### From Pre-built Wheels (Recommended)
+Download the appropriate wheel for your platform and Python version from the [releases page](https://github.com/rusiaaman/color-parser-py/releases) and install using:
+```bash
+pip install wheel_file.whl
+```
+
+### From Source (Requires Rust)
+If you want to install from source or contribute to development:
 ```bash
 # Install Rust toolchain (if not already installed)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
