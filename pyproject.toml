@@ -21,4 +21,4 @@ classifiers = [
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-python-source = "color_parser_py"
+python-source = "python"
