@@ -10,8 +10,16 @@ struct ColorParser {
 impl ColorParser {
     #[new]
     fn new(color_str: &str) -> PyResult<Self> {
-        match color_str.parse::<Color>() {
-            Ok(color) => Ok(ColorParser { color }),
+        let parse_result = color_str.parse::<Color>();
+        match parse_result {
+            Ok(color) => {
+                // Additional validation for color ranges
+                let [r, g, b, a] = color.to_rgba8();
+                if r > 255 || g > 255 || b > 255 || a > 255 {
+                    return Err(pyo3::exceptions::PyValueError::new_err("Color values out of range"));
+                }
+                Ok(ColorParser { color })
+            },
             Err(e) => Err(pyo3::exceptions::PyValueError::new_err(format!("Failed to parse color: {}", e)))
         }
     }
@@ -39,7 +47,13 @@ impl ColorParser {
 
     #[staticmethod]
     fn is_valid(color_str: &str) -> bool {
-        color_str.parse::<Color>().is_ok()
+        match color_str.parse::<Color>() {
+            Ok(color) => {
+                let [r, g, b, a] = color.to_rgba8();
+                r <= 255 && g <= 255 && b <= 255 && a <= 255
+            },
+            Err(_) => false
+        }
     }
 }
 
