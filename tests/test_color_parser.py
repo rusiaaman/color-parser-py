@@ -81,8 +81,9 @@ def test_invalid_colors() -> None:
         "#fz0000",  # Invalid hex
     ]
     for case in invalid_cases:
-        with pytest.raises(ValueError):
+        with pytest.raises(Exception) as e:
             ColorParser(case)
+            assert "Failed to parse color" in str(e.value)
 
 
 def test_validation_method() -> None:
