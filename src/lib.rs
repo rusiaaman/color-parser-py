@@ -17,8 +17,9 @@ impl ColorParser {
     }
 
     #[getter]
-    fn rgba_255(&self) -> [u8; 4] {
-        self.color.to_rgba8()
+    fn rgba_255(&self) -> (u8, u8, u8, u8) {
+        let rgba = self.color.to_rgba8();
+        (rgba[0], rgba[1], rgba[2], rgba[3])
     }
 
     #[getter]

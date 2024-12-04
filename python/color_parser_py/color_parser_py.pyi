@@ -17,12 +17,12 @@ class ColorParser:
         ...
 
     @property
-    def rgba_255(self) -> List[int]:
+    def rgba_255(self) -> tuple[int, int, int, int]:
         """
         Get RGBA values in 0-255 range.
         
         Returns:
-            A list of 4 integers [r, g, b, a] where:
+            A tuple of 4 integers (r, g, b, a) where:
                 r, g, b are in range 0-255
                 a (alpha) is in range 0-255
         """
