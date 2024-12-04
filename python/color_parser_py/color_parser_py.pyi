@@ -1,4 +1,4 @@
-from typing import List, Tuple, ClassVar, overload
+from typing import List
 
 class ColorParser:
     """Parse and manipulate CSS color strings."""
