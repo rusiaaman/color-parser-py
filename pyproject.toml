@@ -22,6 +22,7 @@ classifiers = [
 [tool.maturin]
 features = ["pyo3/extension-module"]
 python-source = "src"
+include = ["src/py.typed"]
 
 [tool.pytest.ini_options]
 pythonpath = "src"
