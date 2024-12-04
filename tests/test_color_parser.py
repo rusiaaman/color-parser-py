@@ -1,6 +1,6 @@
+
 import pytest
 from color_parser_py import ColorParser
-from typing import List
 
 
 def test_hex_color() -> None:
@@ -96,15 +96,15 @@ def test_color_properties() -> None:
     color = ColorParser("rgb(128, 64, 32)")
     rgba_255 = color.rgba_255
     rgba_float = color.rgba_float
-    
+
     # Test tuple unpacking for rgba_255
     r, g, b, a = rgba_255
     assert isinstance(r, int)
     assert 0 <= r <= 255
-    
+
     # Test float values are normalized
     assert all(0 <= x <= 1 for x in rgba_float)
-    
+
     # Convert back to ints and compare
     converted_ints = tuple(int(x * 255) for x in rgba_float[:3])
     assert converted_ints == (128, 64, 32)
