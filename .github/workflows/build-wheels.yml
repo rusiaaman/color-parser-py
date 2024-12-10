@@ -15,9 +15,18 @@ jobs:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
-        python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        include:
+          # Linux builds
+          - os: ubuntu-20.04
+            python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+          # Windows builds  
+          - os: windows-2019
+            python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+          # macOS - build only for latest Python since wheels are compatible
+          - os: macos-12
+            python: ["3.12"]
 
     steps:
       - uses: actions/checkout@v4
@@ -36,10 +45,11 @@ jobs:
 
       - name: Build wheels
         uses: messense/maturin-action@v1
+        timeout-minutes: 30
         with:
           maturin-version: latest
           command: build
-          args: --release -i python${{ matrix.python }} --out dist
+          args: --release -i python${{ matrix.python }} --out dist --target universal2-apple-darwin
 
       - uses: actions/upload-artifact@v3
         with:
