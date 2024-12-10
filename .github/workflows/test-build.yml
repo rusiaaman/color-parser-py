@@ -1,0 +1,30 @@
+---
+name: Test Build
+
+on: [push]
+
+jobs:
+  test_build:
+    name: Test build on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Build wheel
+        uses: messense/maturin-action@v1
+        with:
+          maturin-version: latest
+          command: build
+          args: --release -i python3.12 --out dist
