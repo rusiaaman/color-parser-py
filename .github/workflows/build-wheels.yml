@@ -42,9 +42,6 @@ jobs:
             python: "3.11"
           - os: windows-2019
             python: "3.12"
-          # macOS - build only for latest Python since wheels are compatible
-          - os: macos-12
-            python: "3.12"
 
     steps:
       - uses: actions/checkout@v4
@@ -70,7 +67,6 @@ jobs:
           args: >-
             --release -i python${{ matrix.python }}
             --out dist
-            ${{ matrix.os == 'macos-12' && '--target universal2-apple-darwin' || '' }}
 
       - uses: actions/upload-artifact@v3
         with:
