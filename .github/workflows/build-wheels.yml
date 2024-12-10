@@ -18,15 +18,31 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Linux builds
+          # Linux builds for all Python versions
           - os: ubuntu-20.04
-            python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-          # Windows builds  
+            python: "3.8"
+          - os: ubuntu-20.04
+            python: "3.9"
+          - os: ubuntu-20.04
+            python: "3.10"
+          - os: ubuntu-20.04
+            python: "3.11"
+          - os: ubuntu-20.04
+            python: "3.12"
+          # Windows builds for all Python versions
           - os: windows-2019
-            python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+            python: "3.8"
+          - os: windows-2019
+            python: "3.9"
+          - os: windows-2019
+            python: "3.10"
+          - os: windows-2019
+            python: "3.11"
+          - os: windows-2019
+            python: "3.12"
           # macOS - build only for latest Python since wheels are compatible
           - os: macos-12
-            python: ["3.12"]
+            python: "3.12"
 
     steps:
       - uses: actions/checkout@v4
