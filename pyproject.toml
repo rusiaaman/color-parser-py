@@ -7,7 +7,7 @@ name = "color_parser_py"
 version = "0.1.0"
 description = "Python bindings for color parsing and conversion"
 authors = [{ name = "Your Name", email = "your.email@example.com" }]
-requires-python = ">=3.7"
+requires-python = ">=3.7,<3.13"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
