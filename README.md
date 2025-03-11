@@ -20,63 +20,6 @@ Pre-built wheels are available for:
 
 No Rust toolchain is required for installation from PyPI.
 
-### From Source (For Development)
-If you want to install from source or contribute to development:
-
-```bash
-# Install Rust toolchain (if not already installed)
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Clone the repository
-git clone https://github.com/rusiaaman/color-parser-py
-cd color-parser-py
-
-# Set up development environment
-python -m pip install maturin pytest mypy ruff
-
-# Build and install in development mode
-maturin develop
-
-# Run tests
-pytest tests/
-```
-
-## Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Type Checking
-```bash
-mypy python/color_parser_py
-```
-
-### Linting
-```bash
-ruff check .
-```
-
-### Building Wheels
-```bash
-maturin build --release
-```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## Usage
 
 ```python
@@ -129,10 +72,6 @@ else:
 - Named colors: `red`, `tomato`, etc.
 - Transparent: `transparent`
 
-## Version
-
-Current version: 0.1.5
-
 ## Features
 
 - Fast color parsing powered by Rust
@@ -141,9 +80,70 @@ Current version: 0.1.5
 - Consistent and predictable behavior across platforms
 - Zero Python dependencies - all functionality is implemented in Rust
 
+## Version
+
+Current version: 0.1.5
+
 ## Project Structure
 
 This project uses:
 - [PyO3](https://github.com/PyO3/pyo3) for Rust-Python bindings
 - [Maturin](https://github.com/PyO3/maturin) for building and publishing
 - [csscolorparser](https://github.com/mazznoer/csscolorparser-rs) for the underlying color parsing
+
+## Development
+
+### From Source
+If you want to install from source or contribute to development:
+
+```bash
+# Install Rust toolchain (if not already installed)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Clone the repository
+git clone https://github.com/rusiaaman/color-parser-py
+cd color-parser-py
+
+# Set up development environment
+python -m pip install maturin pytest mypy ruff
+
+# Build and install in development mode
+maturin develop
+
+# Run tests
+pytest tests/
+```
+
+### Running Tests
+```bash
+pytest tests/
+```
+
+### Type Checking
+```bash
+mypy python/color_parser_py
+```
+
+### Linting
+```bash
+ruff check .
+```
+
+### Building Wheels
+```bash
+maturin build --release
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
