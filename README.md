@@ -16,7 +16,7 @@ Pre-built wheels are available for:
 - Windows (x86, x64)
 - macOS (Intel, Apple Silicon)
 - Linux (x86, x86_64, aarch64, armv7, etc.)
-- Python 3.7 through 3.13
+- Python 3.7 through 3.12
 
 No Rust toolchain is required for installation from PyPI.
 
