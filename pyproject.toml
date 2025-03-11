@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "color_parser_py"
-version = "0.1.5"
+version = "0.1.6"
 description = "Python bindings for color parsing and conversion"
 authors = [{ name = "Aman Rusia", email = "rusia.aman@gmail.com" }]
 requires-python = ">=3.7,<3.13"
