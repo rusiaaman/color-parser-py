@@ -59,7 +59,7 @@ impl ColorParser {
 
 /// A Python module for parsing and converting colors
 #[pymodule]
-fn color_parser_py(_py: Python, m: &PyModule) -> PyResult<()> {
+fn color_parser_py(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<ColorParser>()?;
     Ok(())
 }

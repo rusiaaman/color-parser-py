@@ -4,19 +4,20 @@ build-backend = "maturin"
 
 [project]
 name = "color_parser_py"
-version = "0.1.6"
+version = "0.1.7"
 description = "Python bindings for color parsing and conversion"
 authors = [{ name = "Aman Rusia", email = "rusia.aman@gmail.com" }]
-requires-python = ">=3.7,<3.13"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Typing :: Typed",
 ]
 
@@ -49,7 +50,7 @@ addopts = "-v --tb=short"
 # Skip trying to build wheels for PyPy
 skip = "pp*"
 # Build for all supported Python versions
-build = ["cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*"]
+build = ["cp39-*", "cp310-*", "cp311-*", "cp312-*", "cp313-*", "cp314-*", "cp315-*"]
 # Testing requires the package to be installed
 test-requires = ["pytest"]
 # Run pytest after building
